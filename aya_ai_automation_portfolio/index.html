@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Aya Elsayed — AI Automation Specialist focused on n8n workflow automation and practical process optimization." />
+  <title>Aya Elsayed | AI Automation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#2f2a2a;
+      --muted:#766e6d;
+      --pink:#e7b9c8;
+      --pink-dark:#c98fa5;
+      --cream:#fbf7f3;
+      --beige:#eee4da;
+      --card:#fffdfb;
+      --line:#eadfd8;
+      --shadow:0 18px 50px rgba(83,60,61,.10);
+      --radius:26px;
+    }
+    *{box-sizing:border-box;scroll-behavior:smooth}
+    body{margin:0;background:var(--cream);color:var(--ink);font-family:"DM Sans",sans-serif;line-height:1.65}
+    a{text-decoration:none;color:inherit}
+    .wrap{width:min(1120px,92%);margin:auto}
+    nav{position:sticky;top:0;z-index:10;background:rgba(251,247,243,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(234,223,216,.8)}
+    .nav-in{height:74px;display:flex;align-items:center;justify-content:space-between}
+    .brand{font-weight:700;letter-spacing:.12em;font-size:.88rem}
+    .nav-links{display:flex;gap:25px;font-size:.9rem;color:var(--muted)}
+    .nav-links a:hover{color:var(--pink-dark)}
+    .menu{display:none;border:0;background:none;font-size:1.4rem}
+    .hero{min-height:calc(100vh - 74px);display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:50px;padding:65px 0 75px}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--pink-dark);font-size:.78rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase}
+    .eyebrow:before{content:"";width:30px;height:1px;background:var(--pink-dark)}
+    h1{font-family:"Playfair Display",serif;font-size:clamp(3.2rem,7vw,6rem);line-height:.98;margin:18px 0 24px;letter-spacing:-.04em}
+    h1 span{color:var(--pink-dark)}
+    .hero p{font-size:1.08rem;color:var(--muted);max-width:600px}
+    .actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+    .btn{padding:13px 22px;border-radius:999px;font-weight:700;font-size:.9rem;display:inline-flex;align-items:center;gap:8px;border:1px solid var(--ink)}
+    .btn.primary{background:var(--ink);color:white}
+    .btn.secondary{background:transparent;border-color:var(--line)}
+    .hero-visual{position:relative;display:flex;justify-content:center}
+    .portrait-frame{width:min(460px,100%);aspect-ratio:4/5;position:relative;border-radius:42% 42% 24px 24px;overflow:hidden;background:var(--beige);box-shadow:var(--shadow)}
+    .portrait-frame:after{content:"";position:absolute;inset:16px;border:1px solid rgba(255,255,255,.65);border-radius:38% 38% 18px 18px;pointer-events:none}
+    .portrait-frame img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+    .float-note{position:absolute;right:-20px;bottom:34px;background:white;padding:16px 18px;border-radius:18px;box-shadow:var(--shadow);font-size:.82rem}
+    .float-note strong{display:block;font-size:1rem}
+    section{padding:100px 0}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:42px}
+    .section-title{font-family:"Playfair Display",serif;font-size:clamp(2.2rem,4vw,3.5rem);margin:8px 0 0}
+    .section-sub{color:var(--muted);max-width:540px}
+    .about{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px}
+    .about-card{background:var(--beige);padding:35px;border-radius:var(--radius);min-height:260px}
+    .about-card .big{font-family:"Playfair Display",serif;font-size:3.4rem;line-height:1;color:var(--pink-dark)}
+    .about-text p{color:var(--muted);font-size:1.03rem}
+    .education{margin-top:28px;padding-top:25px;border-top:1px solid var(--line)}
+    .education strong{display:block}.education span{color:var(--muted);font-size:.9rem}
+    .skills{background:#f3e9e2}
+    .skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .skill{background:var(--card);border:1px solid var(--line);padding:21px;border-radius:18px}
+    .skill h3{font-size:1rem;margin:0 0 10px}.skill p{margin:0;color:var(--muted);font-size:.9rem}
+    .service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .service{padding:27px 22px;border:1px solid var(--line);border-radius:22px;background:var(--card);transition:.25s}
+    .service:hover,.project:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+    .num{font-size:.78rem;color:var(--pink-dark);font-weight:700;letter-spacing:.12em}
+    .service h3{font-family:"Playfair Display",serif;font-size:1.35rem;margin:20px 0 10px}.service p{color:var(--muted);font-size:.9rem}
+    .projects{background:#fffaf7}
+    .project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .project{background:white;border:1px solid var(--line);border-radius:24px;padding:26px;min-height:300px;display:flex;flex-direction:column;transition:.25s}
+    .project-tag{display:inline-block;width:max-content;background:#f4e1e8;color:#9e657b;padding:6px 10px;border-radius:999px;font-size:.72rem;font-weight:700}
+    .project h3{font-family:"Playfair Display",serif;font-size:1.45rem;line-height:1.15;margin:20px 0 12px}
+    .project p{color:var(--muted);font-size:.9rem;margin:0 0 20px}
+    .flow{margin-top:auto;display:flex;flex-wrap:wrap;gap:7px}.flow span{font-size:.72rem;background:#f7f3ef;padding:6px 9px;border-radius:8px;color:#625b58}
+    .mini{margin-top:13px;font-size:.75rem;color:var(--pink-dark);font-weight:700}
+    .process{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:25px;overflow:hidden}
+    .step{padding:28px;background:white;border-right:1px solid var(--line)}.step:last-child{border:0}
+    .step b{font-size:.8rem;color:var(--pink-dark)}.step h3{font-size:1rem}.step p{color:var(--muted);font-size:.84rem}
+    .cta{background:var(--ink);color:white;border-radius:36px;padding:65px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:40px}
+    .cta h2{font-family:"Playfair Display",serif;font-size:clamp(2.2rem,5vw,4rem);line-height:1;margin:0 0 15px}
+    .cta p{color:#d8cfcc;max-width:600px}
+    .cta .btn{border-color:#fff}.cta .btn.primary{background:white;color:var(--ink)}
+    .contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .contact-card{display:flex;align-items:center;gap:16px;background:white;border:1px solid var(--line);border-radius:20px;padding:20px 22px;transition:.25s}
+    .contact-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:#ddc4cb}
+    .contact-card>div{display:flex;flex-direction:column;flex:1;min-width:0}
+    .contact-card strong{font-size:.92rem}.contact-card span:not(.contact-icon){color:var(--muted);font-size:.82rem;overflow:hidden;text-overflow:ellipsis}
+    .contact-card>b{font-size:1.05rem;color:var(--pink-dark)}
+    .contact-icon{width:42px;height:42px;border-radius:13px;background:#f4e1e8;color:#9e657b;display:grid;place-items:center;font-weight:700;font-size:.95rem}
+    footer{padding:38px 0;color:var(--muted);font-size:.82rem;display:flex;justify-content:space-between;gap:20px}
+    @media(max-width:900px){
+      .hero,.about{grid-template-columns:1fr}.hero{padding-top:45px}.hero-visual{order:-1}.portrait-frame{width:min(390px,85vw)}
+      .service-grid{grid-template-columns:repeat(2,1fr)}.project-grid{grid-template-columns:1fr 1fr}.process{grid-template-columns:1fr 1fr}.step:nth-child(2){border-right:0}.step:nth-child(-n+2){border-bottom:1px solid var(--line)}
+    }
+    @media(max-width:650px){
+      .nav-links{display:none}.menu{display:block}.nav-in{height:65px}
+      .hero{min-height:auto}.hero h1{font-size:3.4rem}.float-note{right:4px}
+      section{padding:72px 0}.section-head{display:block}.skill-grid,.service-grid,.project-grid,.process,.contact-grid{grid-template-columns:1fr}
+      .step{border-right:0!important;border-bottom:1px solid var(--line)!important}.step:last-child{border-bottom:0!important}
+      .cta{padding:38px 27px;grid-template-columns:1fr;border-radius:25px}.cta .btn{width:max-content}
+      footer{flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <div class="wrap nav-in">
+    <a class="brand" href="#home">AYA ELSAYED</a>
+    <div class="nav-links">
+      <a href="#about">About</a><a href="#skills">Skills</a><a href="#services">Services</a><a href="#projects">Projects</a><a href="#contact">Contact</a><a href="#connect">Connect</a>
+    </div>
+    <button class="menu" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<main id="home">
+  <section class="wrap hero">
+    <div>
+      <div class="eyebrow">AI AUTOMATION SPECIALIST</div>
+      <h1>Turn repetitive work into <span>smart workflows.</span></h1>
+      <p>Building intelligent workflows that simplify processes, reduce repetitive work, and turn ideas into practical solutions.</p>
+      <div class="actions">
+        <a class="btn primary" href="#projects">Explore projects ↗</a>
+        <a class="btn secondary" href="#contact">Let's connect</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="portrait-frame"><img src="assets/aya-profile.png" alt="Aya Elsayed"></div>
+      <div class="float-note"><strong>n8n + AI</strong>Workflow automation</div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="eyebrow">ABOUT ME</div><h2 class="section-title">Practical automation, built around the real process.</h2></div>
+      </div>
+      <div class="about">
+        <div class="about-card"><div class="big">01</div><h3>Think process first.</h3><p>Understand the workflow, find the repetitive parts, then automate what actually needs automation.</p></div>
+        <div class="about-text">
+          <p>I’m passionate about transforming repetitive processes into efficient, intelligent workflows. My focus is on AI Automation and workflow design, combining problem-solving with automation tools to create practical solutions that save time and improve productivity.</p>
+          <p>I approach every problem by understanding the process first, identifying what can be improved, and designing a solution around the actual goal.</p>
+          <div class="education"><strong>Mansoura University — Faculty of Computers & Information</strong><span>Computer Science · 2nd year</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="skills">
+    <div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">SKILLS</div><h2 class="section-title">Tools & foundations</h2></div><p class="section-sub">A mix of automation, programming, problem solving, and integration skills.</p></div>
+      <div class="skill-grid">
+        <div class="skill"><h3>AI & Automation</h3><p>AI Automation · Workflow Automation · n8n · Process Optimization</p></div>
+        <div class="skill"><h3>Computer Science</h3><p>OOP · Data Structures · Algorithms · Problem Solving</p></div>
+        <div class="skill"><h3>Programming</h3><p>C# · C++ · Python</p></div>
+        <div class="skill"><h3>Developer Tools</h3><p>Git · GitHub</p></div>
+        <div class="skill"><h3>Integrations</h3><p>APIs · JSON · API Integration</p></div>
+        <div class="skill"><h3>Workflow Thinking</h3><p>Breaking manual processes into clear, connected automation steps.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">SERVICES</div><h2 class="section-title">What I can automate</h2></div></div>
+      <div class="service-grid">
+        <div class="service"><span class="num">01</span><h3>Workflow Automation</h3><p>Design workflows that reduce repetitive manual tasks.</p></div>
+        <div class="service"><span class="num">02</span><h3>AI-Powered Automation</h3><p>Connect AI steps to workflows where they add practical value.</p></div>
+        <div class="service"><span class="num">03</span><h3>Process Optimization</h3><p>Analyze repetitive processes and identify opportunities for automation.</p></div>
+        <div class="service"><span class="num">04</span><h3>n8n Workflows</h3><p>Build structured workflows and connect tools into streamlined systems.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="eyebrow">AUTOMATION PROJECTS</div><h2 class="section-title">Small projects. Real workflows.</h2></div>
+        <p class="section-sub">These are intentionally small, buildable n8n projects so the portfolio can grow with real work instead of placeholder ideas.</p>
+      </div>
+      <div class="project-grid">
+        <article class="project">
+          <span class="project-tag">BUILD NOW · n8n</span>
+          <h3>Smart Contact Form</h3>
+          <p>Collect a contact request, save it automatically, classify it, and send a confirmation without manual copying.</p>
+          <div class="flow"><span>Form/Webhook</span><span>Google Sheets</span><span>AI</span><span>Email</span></div>
+          <div class="mini">Trigger → organize → classify → reply</div>
+        </article>
+        <article class="project">
+          <span class="project-tag">BUILD NOW · n8n</span>
+          <h3>Deadline Reminder</h3>
+          <p>Read tasks from a simple sheet and send an automatic Telegram reminder when a deadline is approaching.</p>
+          <div class="flow"><span>Google Sheets</span><span>Schedule</span><span>IF</span><span>Telegram</span></div>
+          <div class="mini">Schedule → check → filter → remind</div>
+        </article>
+        <article class="project">
+          <span class="project-tag">BUILD NOW · n8n + AI</span>
+          <h3>Inbox Message Router</h3>
+          <p>Classify incoming messages into categories such as inquiry, support, or follow-up, then route each one automatically.</p>
+          <div class="flow"><span>Gmail</span><span>AI</span><span>Switch</span><span>Sheet/Telegram</span></div>
+          <div class="mini">Receive → understand → route → log</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">MY APPROACH</div><h2 class="section-title">From messy task to clear workflow.</h2></div></div>
+      <div class="process">
+        <div class="step"><b>01</b><h3>Understand</h3><p>Map the current process and its repetitive steps.</p></div>
+        <div class="step"><b>02</b><h3>Design</h3><p>Choose the trigger, actions, conditions, and integrations.</p></div>
+        <div class="step"><b>03</b><h3>Automate</h3><p>Build and connect the workflow in n8n.</p></div>
+        <div class="step"><b>04</b><h3>Improve</h3><p>Test edge cases and make the workflow more reliable.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="wrap">
+    <div class="cta">
+      <div><div class="eyebrow" style="color:#e7b9c8">LET'S CONNECT</div><h2>Have a process that could be better?</h2><p>Whether it’s a repetitive task, a manual workflow, or an idea that needs a smarter process — let’s turn it into an efficient solution.</p></div>
+      <a class="btn primary" href="mailto:ayaabdelfadel2007@gmail.com">Email me ↗</a>
+    </div>
+  </section>
+
+  <section id="connect">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="eyebrow">CONTACT</div><h2 class="section-title">Let’s stay connected.</h2></div>
+        <p class="section-sub">For collaboration, automation ideas, or just to say hello, you can reach me through any of the channels below.</p>
+      </div>
+      <div class="contact-grid">
+        <a class="contact-card" href="mailto:ayaabdelfadel2007@gmail.com">
+          <span class="contact-icon">✉</span><div><strong>Email</strong><span>ayaabdelfadel2007@gmail.com</span></div><b>↗</b>
+        </a>
+        <a class="contact-card" href="https://github.com/AyaAbdElfaeil" target="_blank" rel="noopener">
+          <span class="contact-icon">⌘</span><div><strong>GitHub</strong><span>AyaAbdElfaeil</span></div><b>↗</b>
+        </a>
+        <a class="contact-card" href="https://www.linkedin.com/in/aya-abd-el-fadeil/" target="_blank" rel="noopener">
+          <span class="contact-icon">in</span><div><strong>LinkedIn</strong><span>Aya Abd El Fadeil</span></div><b>↗</b>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <span>© 2026 Aya Elsayed · AI Automation & Workflow Design</span>
+  <span>n8n · AI Automation · Problem Solving</span>
+</footer>
+</body>
+</html>
